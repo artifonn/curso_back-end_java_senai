@@ -55,4 +55,4 @@ Este repositório está organizado de acordo com a progressão das disciplinas d
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **[Sérgio](https://github.com/artifonn)** durante o curso de formação. 
+Desenvolvido por **[Sérgio Artifon](https://github.com/artifonn)**. 
