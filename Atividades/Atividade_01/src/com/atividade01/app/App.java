@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // TODO;
+        // TODO: atividade 01
         // Crie um programa que receba do usuario: nome, peso e altura,
         // e exiba na tela o valor de seu IMC e o seu diagnóstico.
         // Cálculo do IMC: peso/(altura*altura)
@@ -25,33 +25,38 @@ public class App {
         String resultadoFormatado;
         double peso;
         double altura;
-        double result; 
+        double result;
+
+        // Entrada de dados 
 
         System.out.println("Informe seu nome: ");
         nome = sc.nextLine();
-        System.out.println("Informe seu peso:  ");
+        System.out.println("Informe seu peso em kg:  ");
         peso = sc.nextDouble();
-        System.out.println("Informe sua altura:  ");
+        System.out.println("Informe sua altura em mentros:  ");
         altura = sc.nextDouble();
 
         result= peso/(altura*altura);
         resultadoFormatado = String.format("%.2f", result);
 
         
-        if (result >= 18.5 && result < 25){
-            System.out.printf(nome + ", Seu IMC é " + resultadoFormatado + ". Portanto, você está no peso ideial");
+        if (result < 18){
+            System.out.println(nome +" Seu IMC É" + resultadoFormatado + "você está abaixo do peso ");
 
-        } else if (result >= 25 && result < 30){
-            System.out.printf(nome + ", Seu IMC é  " + resultadoFormatado + ". Portanto, você está acima do peso");
+        } else if(result < 25){          
+              System.out.println(nome + ", Seu IMC é " + resultadoFormatado + ". Portanto, você está no peso ideial");
+
+        } else if (result < 30){
+            System.out.println(nome + ", Seu IMC é  " + resultadoFormatado + ". Portanto, você está acima do peso");
         }
-        else if (result >= 30 && result < 35){
-            System.out.printf(nome + ", Seu IMC é " + resultadoFormatado + " Portanto, Você está obeso");
+        else if (result < 35){
+            System.out.println(nome + ", Seu IMC é " + resultadoFormatado + " Portanto, Você está obeso");
         }
-        else if( result >= 35 && result <= 40){
-            System.out.printf(nome + ", Seu IMC é  " + resultadoFormatado + ". Portando, você está com obesidade nível 2");
+        else if(result < 40){
+            System.out.println(nome + ", Seu IMC é  " + resultadoFormatado + ". Portando, você está com obesidade nível 2");
         }
         else{
-            System.out.printf(nome + ", Seu IMC é " + resultadoFormatado +  ". Então, você está com obesidade mórbida");
+            System.out.println(nome + ", Seu IMC é " + resultadoFormatado +  ". Então, você está com obesidade mórbida");
         }
 
 
