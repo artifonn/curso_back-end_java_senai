@@ -32,7 +32,7 @@ public class App {
 
         result = peso/(altura * altura);
         String resultadoFormatado = String.format("%.2f", result);
-
+            
         if (result >= 18.5 && result < 25) {
             System.out.println(nome + " você está no peso ideal");
         } else if (result >= 25 && result < 30)  {
