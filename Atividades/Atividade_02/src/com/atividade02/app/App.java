@@ -23,13 +23,21 @@ public class App {
         String nome;
         double idade;
         int opcao;
+        boolean permitido;
 
         // Imprimindo o nome e a idade
 
 
         do{
+            permitido = true;
 
-        System.out.println("Olá, hoje no cinaminha da bagunça seção temos os Seguintes filmes abaixo: ");
+        System.out.println("Olá, bem vindo ao cineminha da bagunça " );
+        System.out.println("Por favor digite seu nome: ");
+        nome = sc.nextLine();
+        System.out.println("Digite sua idade: ");
+        idade = sc.nextDouble();
+
+        System.out.println("Por favor, Selecione as opções de filmes abaixo: ");
         System.out.println("Opção 1 - Sala 01 - A Roda Quadrada - livre");
         System.out.println("Opção 2 - Sala 02 - A Volta dos Que não foram - 12 anos ");
         System.out.println("Opção 3 - Sala 03 - Poeira em alto Mar - 14 anos");
@@ -40,40 +48,64 @@ public class App {
         // uso do switch
 
         switch (opcao) {
-            case "1":
-                System.out.println("Digite seu nome: ");
-                nome = sc.nextLine();
-                System.out.println("Digite sua idade: ");
-                idade = sc.nextDouble();                
-                System.out.println(nome + "Muito obrigado pela preferência. Bom filme");               
+            case 1:                              
+                System.out.println(nome + ", Muito obrigado pela preferência. Bom filme. ");                              
                 break;
-        
-            default:
+            case 2:
+                if (idade >= 12){
+                System.out.println(nome + ", Muito obrigado pela preferência. Bom filme. ");
+                }
+                else{
+                    permitido = false;
+                }
                 break;
-        }
+            case 3:
+                 if (idade >= 14){
+                    System.out.println(nome + ", Muito obrigado pela preferência. Bom filme.");
+                 }
+                 else {
+                    permitido = false;
+                 }
+                 break;
+            case 4:
+                 if (idade >= 16){
+                    System.out.println(nome + ", Muito obrigado pela preferência. Bom filme.");
+                 }
+                 else {
+                    permitido = false;
+                 }
+                 break;
+            case 5:
+                if (idade >= 18){
+                    System.out.println(nome + ", Muito obrigado pela preferência. Bom filme.");
+                 }
+                 else {
+                    permitido = false;
+                 }
+                 break;
 
-
-        
-        
             
-        }
-
-
-
-
-
-        } 
-
- 
-
-
-
-
-
-
-
-
+            default:
+                permitido = false;
+                System.out.println("Operacao inválida.");
+                break;
+        }      
+                   
+        } while(!permitido);
+         
         sc.close();
+
+     
+
+
+
+
+
+
+
+
+
+    
 
 
 
