@@ -45,6 +45,9 @@ public class App {
         System.out.println("Opção 5 - Sala 05 - A vingança do peixe frito - 18 anos ");
         opcao = sc.nextInt();
 
+        // limpeza de buffer
+        sc.nextLine();
+
         // uso do switch
 
         switch (opcao) {
@@ -96,14 +99,6 @@ public class App {
         sc.close();
 
      
-
-
-
-
-
-
-
-
 
     
 
