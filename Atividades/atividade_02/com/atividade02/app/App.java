@@ -21,9 +21,10 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         String nome;
-        // String result;
+        String sala;
+        String filme =null;
         int idade;
-        // int opcao;
+        int idadeMin = 0;
         
 
         System.out.println("Informe o seu nome: ");
@@ -32,29 +33,57 @@ public class App {
         System.out.println("Informe a sua idade: ");
         idade = sc.nextInt();
 
-        if (idade >=12 && idade < 18) {
-            System.out.println("Olá, " + nome + "filmes disponiveis para você: ");
+        sc.nextLine();
+
+        do {
+            System.out.println("Olá, " + nome + " escolha o seu filme: ");
             System.out.println("Sala 01 - A Roda Quadrada - Livre");
             System.out.println("Sala 02 - A volta dos Que Não Foram - 12 anos");
             System.out.println("Sala 03 - Poeira em Alto Mar - 14 anos");
             System.out.println("Sala 04 -  As tranças do Rei Careca - 16 anos");
-        } 
-
-        // do {
-        //     System.out.println("**** Escolha um Filme ****");
-          
-        //     System.out.println("Sala 05 - A vingança do Peixe Frito - 18 anos");
-
-        //     result = (idade < 18 && idade >= 12) ? "" : 
-        //     (idade < 14) ? "Você pode assistir esse filme!" : 
-        //     (idade < 16) ? ""
+            System.out.println("Sala 05 - A vingança do Peixe Frito - 18 anos");
+            System.out.println("**** Escolha um Filme ****");
             
-            
-        // } while (condition);
+            sala = sc.nextLine();
+                       
+            switch (sala) {
+                case "1":
+                  filme = "A Roda Quadrada";
+                  idadeMin = 12;
+                  break;
+                case "2":
+                  filme = "A volta dos Que Não Foram";
+                  idadeMin = 14;
+                  break;
+                case "3":
+                  filme = "Poeira em Alto Mar";
+                  idadeMin = 16;
+                    break;
+                case "4":
+                    filme = "As tranças do Rei Careca";
+                    idadeMin = 18;
+                    break;
+                case "5": 
+                    filme = "A vingança do Peixe Frito";
+                break;
+                case "6":
+                    break;
+                default:
+                    idadeMin = idade + 1;
+                    break;
+            }
+
+            if(idade >= idadeMin) {
+              System.out.println("Ingresso comprado por " + nome);
+              System.out.println("Filme: " + filme);
+              System.out.println("Tenha um ótimo filme!!!");
+            } else {
+              System.out.println("Entrada não liberada para " + nome);
+              System.out.println("Favor escolher outro filme!");
+            }
+        } while (idade >= idadeMin);
         
         sc.close();
-
-
 
     }
 }

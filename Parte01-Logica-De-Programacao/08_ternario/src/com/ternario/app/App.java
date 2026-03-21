@@ -1,5 +1,3 @@
-package com.ternario.app;
-
 import java.util.Scanner;
 
 public class App {
