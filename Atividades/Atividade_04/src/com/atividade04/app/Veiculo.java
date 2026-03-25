@@ -1,13 +1,13 @@
 package com.atividade04.app;
 
 
-public class Carro {
+public class Veiculo {
 
     // Atributos
     public String fabricante;
     public String modelo;
     public String cor;
-    public int placa;
-    public int ano;
+    public String placa;
+    public String ano;
 
 }
