@@ -55,13 +55,15 @@ public class App {
             result = num1 / num2;
             System.out.println("O valor da divisão é " + result);
             break;
+        case "0":
+            System.out.println("encerrar o programa");
     
         default:
             System.out.println("Operacao inválida.");
             
     }
     
-    } while (operador != 0);
+    } while (operador !=0);
 
 
 
