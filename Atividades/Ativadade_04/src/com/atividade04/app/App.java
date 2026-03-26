@@ -21,7 +21,9 @@ public class App {
 
 
         // Entrada de dados do veiculo
-        System.out.println("Olá, informe os dados do veiculo por favor");
+        System.out.println("Olá, informe os dados do veículo por favor");
+        System.out.println("Informe o nome do seu veiculo: ");
+        veiculo.nome = sc.nextLine();
         System.out.println("Informe o fabricante do seu veiculo: ");
         veiculo.fabricante = sc.nextLine();
         System.out.println("Informe o modelo do seu veiculo: ");
@@ -29,6 +31,8 @@ public class App {
         System.out.println("Informe a placa do seu veiculo: ");
         veiculo.placa = sc.nextLine();
         System.out.println("Informe a cor do seu veiculo: ");
+        veiculo.cor = sc.nextLine();
+        System.out.println("Informe o ano do seu carro: ");
         veiculo.ano = sc.nextLine();
 
 
@@ -39,6 +43,7 @@ public class App {
 
 
 
+        sc.close();
 
 
 

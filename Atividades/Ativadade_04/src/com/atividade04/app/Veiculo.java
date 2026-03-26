@@ -15,13 +15,12 @@ public class Veiculo {
 
     }
     public void especificar() {
-        System.out.println(" As espeficações do seu carro é");
-        System.out.println("O nome do seu carro é " + this.nome);
-        System.out.println("A marca do seu fabricante é " + this.fabricante);
-        System.out.println(", sendo se modelo " + this.modelo);
-        System.out.println("com a placa " + this.placa);
-        System.out.println(", com a cor  " + this.cor);
-        System.out.println("e do ano " + this.ano);
+        System.out.print("O nome do seu carro é " + this.nome);
+        System.out.print(", sendo a marca do fabricante " + this.fabricante);
+        System.out.print(", do modelo " + this.modelo);
+        System.out.print("com a placa " + this.placa);
+        System.out.print(", com a cor  " + this.cor);
+        System.out.println(" e do ano " + this.ano);
     }
 
 
