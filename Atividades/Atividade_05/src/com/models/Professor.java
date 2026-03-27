@@ -4,8 +4,7 @@ public class Professor {
     // atributos
     public String nome;
     public String matricula;
-    public double a;
-    public double b;
+  
 
     // Se apresentar
     public String darBoasvindas() {
@@ -15,7 +14,7 @@ public class Professor {
     // Metodos 
 
     public double areaTriangulo(double x, double y){
-        return x*y/2;
+        return (x*y)/2;
     }
 
     public double areaCirculo(double x){
@@ -23,15 +22,12 @@ public class Professor {
     }
 
     // a*x + b = 0
+    // a*x=-b
+    // x = -b/a
 
-    public funcaoAfim(double a, double b){
-        this.a = a;
-        this.b = b;
-    }
-        
-
+    
     public double equacaoPriGrau(double x, double y){
-        return 
+        return -x/y;
 
     }
 

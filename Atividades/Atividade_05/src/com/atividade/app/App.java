@@ -2,7 +2,8 @@ package com.atividade.app;
 
 import java.util.Scanner;
 
-import com.models.*;
+import com.models.Aluno;
+import com.models.Professor;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -34,10 +35,11 @@ public class App {
         aluno.idade = sc.nextDouble();
         sc.nextLine();
 
-        // Interação com o professor
-        System.out.println("Informe o nome do Professor: ");
-        prof.nome = sc.nextLine();
-        System.out.println("Informe a matrícula do professor: ");
+        
+        
+        prof.nome = "Alex machado";
+        
+        prof.matricula = "kkk-kkk";
 
 
         System.out.println(prof.darBoasvindas());
@@ -46,9 +48,10 @@ public class App {
 
         do{
         System.out.println(" Escolha uma  das opções abaixo que o :" + prof.nome + " pode resolver. ");
-        System.out.println("1 - Calcular a area do triangulo: ");             
-        System.out.println("2 - Calcular a area de um circulo : ");             
-        System.out.println("3 - Calcular uma função do 1º grau: "); 
+        System.out.println("1 - Calcular a Área do triangulo: ");             
+        System.out.println("2 - Calcular a Área de um círculo : ");             
+        System.out.println("3 - Calcular uma função do 1º grau: ");
+        System.out.println("4 - Encerrar o programa: ");
         operador = sc.nextDouble();
 
         if (operador == 1){
@@ -65,10 +68,22 @@ public class App {
            
 
         }
+        if(operador == 3){
+            System.out.println("digite o valor de A: ");
+            x = sc.nextDouble();
+            System.out.println("digite o valor de B: ");
+            y = sc.nextDouble();
+            System.out.println((x!= 0) ? "A raiz da equação é " + prof.equacaoPriGrau(x, y)
+        : "Coeficiente A não pode ser 0.");
 
-        } while (operador !=4);   
 
+        }
 
+        } while (operador !=4);
+        System.out.println("Obrigado por usar o programa");
+
+        
+        sc.close();
 
 
 
