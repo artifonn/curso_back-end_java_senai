@@ -1,9 +1,12 @@
 package com.atividade06.models;
 
-final public class Moto extends Veiculo{
+public final class Moto extends Veiculo {
+    private String cilindradas;
 
-
-    public Moto() {
+    public Moto(String fab, String mod, String cor, String ano, String pla, String cilindradas) {
+        super(fab, mod, cor, ano, pla, "Motocicleta");
+        this.cilindradas = cilindradas;
     }
 
+    public String getCilindradas() { return cilindradas; }
 }
