@@ -1,4 +1,11 @@
 package com.veiculos.app;
+
+import java.util.Scanner;
+import com.veiculos.models.Carro;
+import com.veiculos.models.Caminhao;
+import com.veiculos.models.Moto;
+import com.veiculos.models.Onibus;
+
 public class App {
     
     public static void main(String[] args) throws Exception {
@@ -14,7 +21,41 @@ public class App {
         // Ao final, o programa exibirá os dados do veículo, escolhido por ele.
         // NOTE: Utilize herança, abstração e encapsulamento para codar.
 
+        Scanner sc = new Scanner(System.in);
 
+        String tipoVeiculo;
+
+        System.out.println("\n Digite uma das opcões abaixo: \n");
+        System.out.println("A - Moto.");
+        System.out.println("B - Carro.");
+        System.out.println("C - Caminhão.");
+        System.out.println("D - Ônibus.");
+        tipoVeiculo = sc.nextLine();
+        
+        
+
+
+        switch (tipoVeiculo) {
+            case "A":
+                Moto moto = new Moto(null, null, null, null, null, "A", null);
+                // TODO: Informar dados da moto                
+                break;
+                // TODO: Fazer os cases dos outros veiculos;        
+            default:
+                break;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        sc.close();
 
     }
 }
