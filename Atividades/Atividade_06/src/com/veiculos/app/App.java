@@ -76,7 +76,7 @@ public class App {
                 car.setCor(sc.nextLine());
                 System.out.println("Tem bagageiro ?: (SIM/ NÃO)");
                 String resposta = sc.nextLine();
-                boolean bagageiro = resposta.equalsIgnoreCase("SIM");
+                boolean bagageiro = resposta.trim().equalsIgnoreCase("SIM");
                 car.setBagageiro(bagageiro);
 
 
@@ -86,7 +86,7 @@ public class App {
                 System.out.println("Modelo: " + car.getModelo());     
                 System.out.println("Placa: " + car.getPlaca());     
                 System.out.println("Cor: " + car.getCor());     
-                System.out.println("Cilindrada: " + car.getBagageiro());
+                System.out.println("Bagageiro: " +  (car.getBagageiro() ? "SIM" : "NÃO"));
                 System.out.println("Categoria: " + car.getCategoria());
                 break;
             case "C":
@@ -139,7 +139,7 @@ public class App {
                 System.out.println("Modelo: " + bus.getModelo());     
                 System.out.println("Placa: " + bus.getPlaca());     
                 System.out.println("Cor: " + bus.getCor());     
-                System.out.println("Cilindrada: " + bus.getLeito());
+                System.out.println("leito: " + (bus.getLeito() ? "SIM":"NÃO"));
                 System.out.println("Categoria: " + bus.getCategoria());
                   
 
