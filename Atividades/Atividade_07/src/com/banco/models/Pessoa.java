@@ -2,21 +2,10 @@ package com.banco.models;
 
 abstract public class Pessoa {
 
-    private String nome;
     private String email;
 
-    public Pessoa(String nome, String email) {
-        this.nome = nome;
+    public Pessoa(String email) {
         this.email = email;
-    }
-
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getEmail() {
@@ -26,6 +15,8 @@ abstract public class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 
 
     public void exibirDados(){}

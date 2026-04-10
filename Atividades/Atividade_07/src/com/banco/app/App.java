@@ -5,7 +5,7 @@ public class App {
 
         // TODO: atividade 07
         // Crie um programa de aplicativo de banco: o usuario poderá escolher se 
-        // deseja enttrar como pessoa física ou pessoa jurídica, deverá informar o nome,
+        // deseja entrar como pessoa física ou pessoa jurídica, deverá informar o nome,
         // email CPF (classe PessoaFisica), ou nome fantasia, razao social, email e cnjp (classe PessoaJuridica),
         //  e o programa deverá informar a agência e conta (classe Conta) do titular (uma única vez durante todo o
         // programa). Em seguida, o programa deverá exibir as opções para o usuário: consultar dados da conta, fazer
