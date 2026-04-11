@@ -25,8 +25,11 @@ public class ContaPF extends Conta{
         System.out.println("Nome do Titular: " + this.pf.getNome());
         System.out.println("Cpf do Titular: " + this.pf.getCpf());
         System.out.println("E-mail do titular: " + this.pf.getEmail());
+        super.consultarDados();
         
     }
+
+
 
 
 

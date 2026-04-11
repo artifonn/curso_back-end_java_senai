@@ -25,8 +25,13 @@ final public class ContaPj extends Conta {
         System.out.println("Razao social: " + this.pj.getRazaosocial());
         System.out.println("CNPJ: " + this.pj.getCnpj());
         System.out.println("Email: " + this.pj.getEmail());
-        System.out.println("Email: " + this.pj.getEmail());
+        super.consultarDados();
 
+    }
+
+    public double sacar(double valor){
+        this.setSaldo(this.getSaldo() - valor - (this.getSaldo()-0.1/100));
+        return this.getSaldo();
     }
 
 

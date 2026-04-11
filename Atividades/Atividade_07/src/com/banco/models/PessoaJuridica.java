@@ -14,7 +14,7 @@ final public class PessoaJuridica extends Pessoa {
         this.nomeFantasia = nomeFantasia;
                 
     }
-
+ 
     public String getRazaosocial() {
         return this.razaosocial;
     }
