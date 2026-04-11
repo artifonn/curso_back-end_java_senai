@@ -2,26 +2,40 @@ package com.atividade07.models;
 
 public class ContaPJ extends Conta {
 
-    private PessoaJuridica pj;
+  private PessoaJuridica pj;
 
-    public ContaPJ(String nAgencia, String nConta, double saldo) {
-        super(nAgencia, nConta, saldo);
-        //TODO Auto-generated constructor stub
-    }
+  public ContaPJ(String nAgencia, String nConta, double saldo, PessoaJuridica pj) {
+    super(nAgencia, nConta, saldo);
+    this.pj = pj;
+  }
 
-    @Override
-    public void exibirDados() {
-        
-    }
+  public PessoaJuridica getPj() {
+    return this.pj;
+  }
 
-    @Override
-    public double fazerDeposito(double valor) {
-        return this.saldo += valor;
-    }
+  public void setPj(PessoaJuridica pj) {
+    this.pj = pj;
+  }
 
-    @Override
-    public double fazerSaque(double valor) {
-        return this.saldo -= valor;
-    }
+  public double getSaldo() {
+    return this.saldo;
+  }
+
+  private void setSaldo(double saldo) {
+    this.saldo = saldo;
+  }
+
+  public void exibirDados() {
+    System.out.println("Razão Social: " + this.pj.getRazaoSocial());
+    System.out.println("Nome fantasia: " + this.pj.getNomeFantazia());
+    System.out.println("CNPJ: " + this.pj.getCnpj());
+    System.out.println("E-mail: " + this.pj.getEmail());
+    super.exibirDados();
+  }
+
+  public double fazerSaque(double valor) {
+    this.setSaldo(this.getSaldo() - valor - (this.getSaldo() - 0.01 / 100));
+    return this.getSaldo();
+  }
 
 }

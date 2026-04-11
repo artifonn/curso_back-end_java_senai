@@ -22,5 +22,9 @@ public class ContaPF extends Conta{
     System.out.println("E-mail: " + this.pf.getEmail());
     super.exibirDados();
   }
+
+  public double getSaldo() {
+    return this.saldo;
+  }
  
 }
