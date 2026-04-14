@@ -1,29 +1,35 @@
 package com.atividade08.models;
 
-public class Usuario {
-    private String nome;
-    private int idade;
+import com.atividade08.repository.IUsuario;;
 
-    public Usuario(String nome, int idade){
-        this.nome = nome;
-        this.idade = idade;
-    }
+public class Usuario implements IUsuario {
+	private String nome;
+	private int idade;
 
-    public String getNome() {
-        return this.nome;
-    }
+	public Usuario(String nome, int idade) {
+		this.nome = nome;
+		this.idade = idade;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public String getNome() {
+		return this.nome;
+	}
 
-    public int getIdade() {
-        return this.idade;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
+	public int getIdade() {
+		return this.idade;
+	}
 
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	@Override
+	public String verificaIdade() {
+		return (this.idade >= 18) ? " é maior de idade." : " é menor de idade.";
+	}
 
 }
