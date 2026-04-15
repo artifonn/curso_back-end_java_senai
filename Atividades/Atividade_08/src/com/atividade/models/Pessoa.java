@@ -1,6 +1,8 @@
 package com.atividade.models;
 
-public class Pessoa {
+import com.atividade.repository.IUsuario;
+
+public class Pessoa implements IUsuario {
 
     private String nome;
     private double idade;
@@ -26,6 +28,14 @@ public class Pessoa {
     public void setIdade(double idade) {
         this.idade = idade;
     }
+
+    @Override
+    public String verificarIdade() {
+       return (this.idade >= 18) ? " É maior idade" : " É menor de idade";
+    }
+
+   
+
 
 
 

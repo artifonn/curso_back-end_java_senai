@@ -15,17 +15,17 @@ public class App {
 
         Pessoa pessoa = new Pessoa(null, 0);
 
+        // Entrada de dados
+
         pessoa.setNome(JOptionPane.showInputDialog("Informe o nome:"));
         pessoa.setIdade(Double.parseDouble(JOptionPane.showInputDialog("Informe a idade: ")));
 
-        if (pessoa.getIdade() >= 18){
-            JOptionPane.showMessageDialog(null, "Seu nome é : " + pessoa.getNome() + "\n e voce é Maior de idade");
+        // Saída de dados
 
-        }  else{
-            JOptionPane.showMessageDialog(null, "Seu nome é : " + pessoa.getNome() + "\n e voce é Menor de idade");
-            
-        }
+        JOptionPane.showMessageDialog(null, pessoa.getNome() + pessoa.verificarIdade());
+        
 
+       
 
 
     }
