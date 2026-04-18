@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- link para voltar -->
+     <a href="index.html">Voltar</a>
+
+     <h1>Formulario</h1>
+     <!-- formualario -->
+     <form action="" method="">
+        <label for="Nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+        <label for="idade">Idade:</label><br>
+        <input type="number" id="idade" name="idade" min="0"><br><br>
+        <label for="altura">altura:</label><br>
+        <input type="number" id="altura" name="altura" step="0.01"><br><br>
+        <label for="Data de nascimento">Data de nascimento: </label><br>
+        <input type="date" id="dataNascimento" name="dataNascimento"><br><br>
+        <label for="genero">Gênero:</label><br>
+        <input type="radio" id="genero" name="genero" 
+        value="Masculino"><span>Masculino</span><br>
+        <input type="radio" id="genero" name="genero"
+        value="Feminino"><span>Feminino</span><br>
+        <input type="radio" id="genero" name="genero"
+        value="Outros"><span>Outros</span><br><br>
+
+        <label for="Escolaridade">Escolaridade:</label><br>
+        <select id="escolaridade" name="escolaridade">
+            <option value="fundamental">Fundamental</option>
+            <option value="médio">Médio</option>
+            <option value="superio">Superior</option>
+            <option values="pós">Pós Graduação</option>
+            <option value="Mestrado">Mestrado</option>
+            <option value="douro">Doutorado</option>
+            
+        </select><br><br>
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha"><br><br>
+
+        <button type="submit">Cadastrar</button><br><br>
+        <button type="reset">Resetar formulário</button>
+
+     </form>
+</body>
+</html>
