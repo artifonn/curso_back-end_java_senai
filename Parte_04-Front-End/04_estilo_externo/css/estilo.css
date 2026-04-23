@@ -1,0 +1,21 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	display:  flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 100%;
+	background-color: rgba(0, 0, 255, 0.842);
+	height: 100vh;
+}
+
+.objeto {
+	background: rgba(255, 0, 0, 0.959);
+	width: 500px;
+	height: 500px;
+	border: solid 4px #000;
+}
