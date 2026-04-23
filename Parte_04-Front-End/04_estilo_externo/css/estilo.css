@@ -6,16 +6,28 @@
 
 .container {
 	display:  flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	min-width: 100%;
 	background-color: rgba(0, 0, 255, 0.842);
 	height: 100vh;
 }
 
 .objeto {
-	background: rgba(255, 0, 0, 0.959);
+	background: #00319b;
 	width: 500px;
 	height: 500px;
-	border: solid 4px #000;
+	border: solid 4px #014ff7;
+}
+
+.objeto:hover {
+	border-radius: 50%;
+	transition: 0.9s ease;
+	background-color: rgba(72, 72, 114, 0.842);
+}
+
+.texto {
+	color: #f1f1f1;
+	padding-top: 50px;
 }
