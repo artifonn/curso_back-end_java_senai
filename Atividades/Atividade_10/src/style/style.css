@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg--logo-youcast: #595959;
+  --bg--menu-bar: #2C2C2C;
+  --bg--aside-br: #E2E2E2;
+  --verde--titulo: #26B863;
+  --rosa--logo: #FD2FAC;
+  --cor--texto--principal: #FBFBFB;
+  --font--principal: 'MinhaFont', sans-serif;
+}
+
+@font-face {
+  font-family: 'MinhaFonte'; /* Nome que você dará à fonte */
+  src: url('../font/helvetica-neue-5/HelveticaNeueItalic.ttf') format('truetype'); /* Caminho da fonte */
+
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  background: var(--bg--menu-bar);
+  border-bottom: solid 5px;
+  border-image: linear-gradient(to right, #26B863, #78ADF1, #FD2FAC) 1;
+  width: 100vw;
+  height: 90px;
+}
+
+.div-logo {
+  width: 30%;
+  height: 100%;
+  background: var(--bg--logo-youcast);
+
+  display: flex;
+  justify-content: center; /* centraliza horizontal */
+  align-items: center;  
+}
+
+.logo {
+  width:70%;
+  height: auto;
+}
+
+.div-navegacao {
+  display: flex;
+  justify-content: end;
+  width: 80%;
+  list-style: none;
+  align-items: center;
+  padding-right: 20px;
+}
+
+li a {
+  font-size: 18px;
+  color: var(--cor--texto--principal);
+  font-weight: 800;
+  align-items: center;
+  margin: 0px 20px;
+  font-family: 'MinhaFont', sans-serif;
+  text-decoration: none;
+}
+
+.ativo {
+  border-bottom: 5px solid var(--verde--titulo);
+}
+
+.logo_cast {
+  width: 150px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.img_perfil {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.aside-bar {
+  width: 20vw;
+  min-height: 100vh;
+  background: var(--bg--aside-br);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.aside-itens {
+  width: 80%;
+  margin: 40px 0px;
+}
+
+
+h2 {
+  font-family: 'MinhaFont', sans-serif;
+  color: var(--cor--texto--principal);
+  background: var(--verde--titulo);
+  font-size: 26px;
+  font-weight: 500;
+  width: 80%;
+  padding: 0px 10px;
+  margin-bottom: 10px;
+}
+
+.treinding_casters {
+  display: flex;
+  margin-top: 20px;
+}
+
+.usuario-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.usuario {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  justify-content: center;
+}
+
+span {
+  color: var(--cor--texto--principal);
+  font-family: var(--font--principal);
+  font-size: 18px;
+  margin-left: 5px;
+  justify-content: center;
+}
+
+.username {
+  color: var(--bg--menu-bar);
+  font-weight: 600;
+}
+
+.userHash {
+  color: var(--bg--logo-youcast);
+}
+
+.userHash h2 {
+  margin-bottom: 20px;
+}
+
+.hashtags p,
+.locations p {
+  color: var(--bg--logo-youcast);
+  font-size: 18px;
+  line-height: 25px;
+}
