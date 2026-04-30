@@ -1,7 +1,7 @@
 *{
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 1;
 }
 
 @font-face {
@@ -137,9 +137,10 @@
 /* Aside  */
 
 .aside{
-  display: flex;
+  float: left;
   background-color: #e2e2e2;
   width: 15%;
+  height: 150vh;
   padding: 20px 30px;
 
 }
@@ -161,29 +162,60 @@
 
 .userItens{
   display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  
 }
+
+
 
 .username{
-  display: block;
+  display: flex;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
   color: #333;
+  margin: 10px;
+  height: 10px;
+
 }
 
+
 .hastag {
+  display: flex;
+  align-items: center;
   font-size: 15px;
   color: #777;
+  margin: 10px;
 }
+
 
 .profileUsers{
   display: flex;
-  width: 35px;
-  height: 35px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 10px;
+  /* margin: 10px; */
 
+}
+
+.location-hastag{
+  margin-bottom: 23px;
+}
+
+.hastag-just-for-you{
+  margin-bottom: 25px;
+}
+
+.img-just-for-you{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+
+.main{
+  float:center;
+  display: flex;
+  background-color: #2b2b2b;
 }
