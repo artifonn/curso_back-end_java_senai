@@ -116,7 +116,8 @@ h2 {
   margin-top: 20px;
 }
 
-.usuario-img {
+.usuario-img,
+.usuario-img-main {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -161,10 +162,12 @@ span {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
   padding: 20px 20px;
 }
 
+.item {
+  justify-content: center;
+}
 
 .img-perfil {
   height: 250px;
@@ -174,7 +177,55 @@ span {
 
 .grid-icon {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: ;
 }
 
+.itens-usuario-main {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.usuario-img-main {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.info-usuario-main {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+}
+
+.icone-olho {
+  width: 20px;
+}
+
+.usuario-itens-main {
+  display: grid;
+  grid-template-columns: 1fr auto; /* texto ocupa espaço, info fica à direita */
+  gap: 5px;
+  align-items: center;
+}
+
+/* Faz os <p> ocuparem só a coluna da esquerda */
+.usuario-itens-main > p {
+  grid-column: 1;
+  margin: 0;
+}
+
+/* Faz a info (ícone + número) ficar na direita */
+.info-usuario-main {
+  grid-column: 2;
+  grid-row: 1 / span 2; /* ocupa a altura das duas linhas */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  color: var(--bg--menu-bar);
+  background-color: var(--rosa--logo);
+}
