@@ -1,0 +1,17 @@
+.bg-pink {
+    background-color: #f0f;
+}
+
+
+.bg-verde-oliva{
+    background-image: linear-gradient(to right bottom, #090, #020);
+}
+
+.bs-primary {
+    background-color: #01426a;
+}
+
+.logo {
+    width: 60px;
+    margin: 10px;
+}
