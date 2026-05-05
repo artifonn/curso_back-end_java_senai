@@ -19,7 +19,7 @@
 <body>
 
     <!-- menu superior -->
-    <nav class="navbar navbar-expand-lg bg-verde-oliva " >
+    <nav class="navbar navbar-expand-lg bg-verde-oliva border-bottom border-dark-subtle shadow" data-bs-theme="dark" >
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="img/yuji.jfif" alt="yuji" class="logo">
@@ -63,6 +63,55 @@
         </div>
     </nav>
     <!-- fim do menu superior -->
+
+    <!-- conteudo da pagina -->
+    <main class="mt-5">
+        <div class="container">
+            <h1>Formulário Bootstrap</h1>
+            <hr>
+
+            <!-- formulario -->
+             <form  method="">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-3 ">
+                        <label for="nome" class="form-label">Primeiro nome:</label>
+                        <input class="form-control" type="text" placeholder="Informe o primeiro nome" aria-label="default input example">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-8 mb-3 ">
+                        <label for="sobrenome" class="form-label">Sobrenome:</label>
+                        <input class="form-control" type="text" placeholder="Informe o Sobrenome" aria-label="default input example">
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-3 mb-3 ">
+                        <label for="cpf" class="form-label">CPF:</label>
+                        <input class="form-control" type="text" placeholder="xxx.xxx.xxx-xx" aria-label="default input example">
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-3 mb-3 ">
+                        <label for="telefone" class="form-label">Telefone:</label>
+                        <input class="form-control" type="text" placeholder="(DD) 0000-0000" aria-label="default input example">
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-3 mb-3 ">
+                        <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
+                        <input class="form-control" type="date" aria-label="dataNascimento">
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-3 mb-3">
+                        <label for="genero" class="form-label">Gênero</label>
+                        <select class="form-select" aria-label="Disabled select example" >
+                            <option selected>Escolha uma opção</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                            <option value="3">Outro</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="d-flex flex-row-reverse mt-5">
+                    <button type="submit" class="p-2">Enviar</button>
+                </div>
+
+             </form>
+        </div>
+    </main>
+
+    <!-- fim do conteúdo da página -->
 
     <!-- js bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

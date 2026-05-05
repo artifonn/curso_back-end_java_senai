@@ -1,5 +1,5 @@
 .bg-pink {
-    background-color: #f0f;
+    background-color: rgb(235, 10, 160);
 }
 
 
@@ -7,11 +7,13 @@
     background-image: linear-gradient(to right bottom, #090, #020);
 }
 
+
 .bs-primary {
     background-color: #01426a;
 }
 
+
 .logo {
-    width: 60px;
+    width: 45px;
     margin: 10px;
 }
