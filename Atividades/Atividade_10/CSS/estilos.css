@@ -221,25 +221,32 @@
 }
 
 
-.grid {
+.container-grid {
     display: grid;
     grid-template-columns: auto auto auto auto;
+    place-items: center;
+    gap: 10px;
 }
 
-.article {
-    margin: 0px 10px 10px 10px;
-}
 
 .img-main {
-    width: 250px;
-    height: 300px;
+    width: 300px;
+    height: 320px;
+    
 }
 
 .user-main {
-    margin: 10px 0px;
+  display: flex;
+  justify-content: left;
+  margin: 5px;
+    
 }
 
 .user-main img {
-    margin-right: 10px;
-    width: 38px;
+    margin-right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+
 }
