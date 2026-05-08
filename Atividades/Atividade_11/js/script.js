@@ -12,12 +12,36 @@ const calcularImc = () => {
 
     let nome = document.querySelector("#nome").value;
     let idade = document.querySelector("#idade").value;
-    let altura = document.querySelector("#altura").value;
+    let altura = parseFloat(document.querySelector("#altura").value);
+    let peso = document.querySelector("#peso").value;
 
-    let result = (idade/altura);
+    let result = (peso/(altura*altura));
 
-    if (30 ==)
-    
-    
+    if (result < 18) {
+        document.querySelector("#result").innerHTML = nome + " Seu IMC é " + result.toFixed(2) + " , e você está abaixo do peso.";
+    }
+    else if (result < 30){
+        document.querySelector("#result").innerHTML = nome + " Seu IMC é " + result.toFixed(2) + ", e você está no peso ideal."
+    }
+    else if (result < 35){
+        document.querySelector("#result").innerHTML = nome + " Seu IMC é " + result.toFixed(2) + ", e você está obeso";
+    }
+    else if (result < 40) {
+        document.querySelector("#result").innerHTML = nome + " Seu IMC é " + result.toFixed(2) + ", e você está com obesidade nível 2";
+    }
+    else if (result > 40){
+        document.querySelector("#result").innerHTML = nome + " Seu IMC é " + result.toFixed(2) + ", você é um obeso Morbido";
+    }  
 
 }
+
+// evento 
+ form.addEventListener("submit", function(event) {
+    // anular o submit
+    event.preventDefault();
+
+    //
+    calcularImc();
+ });
+    
+ 
