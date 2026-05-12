@@ -34,58 +34,63 @@ maskCep.addEventListener('input', function(){
 
 // consumo api
 const limparFormularioCep = () =>{
-    document.querySelector("#estado").value ("");
-    document.querySelector("#cidade").value ("");
-    document.querySelector("#bairro").value ("");
-    document.querySelector("#logradouro").value ("");
-    document.querySelector("#complemento").value ("");
+    document.querySelector('#estado').value = ('');
+    document.querySelector('#cidade').value = ('');
+    document.querySelector('#bairro').value = ('');
+    document.querySelector('#logradouro').value= ('');
+    document.querySelector('#complemento').value = ('');
 
 }
 
 
 const meuCallback = (conteudo) => {
     if(!("erro" in conteudo)) {
-        document.querySelector("#estado").value = (conteudo.estado);
-        document.querySelector("#cidade").value = (conteudo.localidade);
-        document.querySelector("#bairro").value = (conteudo.bairro);
-        document.querySelector("#logradouro").value = (conteudo.logradouro);
-        document.querySelector("#complemento").value = (conteudo.complemento);
+        document.querySelector('#estado').value = (conteudo.uf);
+        document.querySelector('#cidade').value = (conteudo.localidade);
+        document.querySelector('#bairro').value = (conteudo.bairro);
+        document.querySelector('#logradouro').value = (conteudo.logradouro);
+        document.querySelector('#complemento').value = (conteudo.complemento);
     }
     else{
         limparFormularioCep();
-        alert("CEP não encontrado.")
+        alert("CEP não encontrado.");
     }
 
-    pesquisaCep.addEventListener("blur", function(){
-        let cep = document.querySelector("#cep").value.replace(/\D/g,"");
-
-        if(cep !=""){
-            let validaCep =/^[0-9]{8}$/;
-            
-            if(validaCep.test(cep)){
-                document.querySelector('#estado').value ="buscando...";
-                document.querySelector('#cidade').value ="buscando...";
-                document.querySelector('#bairro').value ="buscando...";
-                document.querySelector('#logradouro').value ="buscando...";
-                document.querySelector('#complemento').value ="buscando...";
-
-                let script= document.createElement("script");
-                
-                script.src ='https://viacep.com.br/ws/' + cep + '/json/?callback=meuCallback';
-
-                document.body.appendChild(script);
-            }
-            else{
-                limparFormularioCep();
-                alert("Formato do cep inválido.");
-            }
-        }
-        else{
-            limparFormularioCep();
-        }
-    });
+   
 }
 
+pesquisaCep.addEventListener('blur', function() {
+    let cep = document.querySelector('#cep').value.replace(/\D/g, '');
+
+    if (cep != '') {
+        let validaCep = /^[0-9]{8}$/;
+
+        if (validaCep.test(cep)) {
+            document.querySelector('#estado').value = "buscando...";
+            document.querySelector('#cidade').value = "buscando...";
+            document.querySelector('#bairro').value = "buscando...";
+            document.querySelector('#logradouro').value = "buscando...";
+            document.querySelector('#complemento').value = "buscando...";
+
+            let script = document.createElement('script');
+
+            script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meuCallback';
+
+            document.body.appendChild(script);
+        }
+        else {
+            limparFormularioCep();
+            alert("Formato do CEP inválido.");
+        }
+    }
+    else {
+        limparFormularioCep();
+    }
+});
+
+
+
+ 
 // exibe os dados na página
 form.addEventListener('submit', function(e){
     e.preventDefault();
