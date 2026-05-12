@@ -1,108 +1,122 @@
 const form = document.querySelector('form');
-const campoCpf = document.querySelector('#cpf');
-const campoTelefone = document.querySelector('#telefone');
-const campoCep = document.querySelector('#cep');
-const consultaCep = document.querySelector('#cep');
-const dados = document.querySelector('#dados');
-
-const cepValido = /^\d{5}-?\d{3}$/;
-const emailValido = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const cpfValido = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
-
+const campoNome = document.querySelector('#nome');
 const campoEmail = document.querySelector('#email');
+const campoCpf = document.querySelector('#cpf');
+const campoCep = document.querySelector('#cep');
+const campoEstado = document.querySelector('#estado');
+const campoCidade = document.querySelector('#cidade');
+const campoBairro = document.querySelector('#bairro');
+const campoLogradouro = document.querySelector('#logradouro');
+const campoNumero = document.querySelector('#numero');
+const campoComplemento = document.querySelector('#complemento');
+const containerDados = document.querySelector('#dados');
 
-const limparFormulario = () => {
-	document.querySelector('#estado').value = '';
-	document.querySelector('#cidade').value = '';
-	document.querySelector('#bairro').value = '';
-	document.querySelector('#logradouro').value = '';
-	document.querySelector('#complemento').value = '';
+const botaoEnviar = document.querySelector('.btn-success');
+
+const emailValido = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const cpfValido = /^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/;
+
+const atualizarCamposEndereco = (estado = '', cidade = '', bairro = '', logradouro = '', complemento = '') => {
+  campoEstado.value = estado;
+  campoCidade.value = cidade;
+  campoBairro.value = bairro;
+  campoLogradouro.value = logradouro;
+  campoComplemento.value = complemento;
 };
 
-const meuCallback = (conteudo) => {
+campoCep.addEventListener('blur', async () => {
+  const cepLimpo = campoCep.value.replace(/\D/g, '');
 
-	if (!('erro' in conteudo)) {
+  if (cepLimpo.length !== 8) {
+    if (cepLimpo.length > 0) alert('CEP inválido. Digite os 8 números.');
+    atualizarCamposEndereco();
+    return;
+  }
 
-		document.querySelector('#estado').value = conteudo.uf;
-		document.querySelector('#cidade').value = conteudo.localidade;
-		document.querySelector('#bairro').value = conteudo.bairro;
-		document.querySelector('#logradouro').value = conteudo.logradouro;
-		document.querySelector('#complemento').value = conteudo.complemento;
+  atualizarCamposEndereco('Buscando...', 'Buscando...', 'Buscando...', 'Buscando...', 'Buscando...');
 
-	} else {
+  try {
+    const resposta = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+    const dadosCep = await resposta.json();
 
-		limparFormulario();
-		alert('CEP inválido.');
+    if (dadosCep.erro) {
+      atualizarCamposEndereco();
+      alert('CEP não encontrado.');
+      return;
+    }
 
-	}
-};
+    atualizarCamposEndereco(
+      dadosCep.uf,
+      dadosCep.localidade,
+      dadosCep.bairro,
+      dadosCep.logradouro,
+      dadosCep.complemento
+    );
 
-consultaCep.addEventListener('blur', () => {
-
-	const valorCep = campoCep.value.replace(/\D/g, '');
-
-	if (cepValido.test(valorCep)) {
-
-		document.querySelector('#estado').value = 'Buscando...';
-		document.querySelector('#cidade').value = 'Buscando...';
-		document.querySelector('#bairro').value = 'Buscando...';
-		document.querySelector('#logradouro').value = 'Buscando...';
-		document.querySelector('#complemento').value = 'Buscando...';
-
-		const script = document.createElement('script');
-
-		script.src = `https://viacep.com.br/ws/${valorCep}/json/?callback=meuCallback`;
-
-		document.body.appendChild(script);
-
-	} else {
-
-		limparFormulario();
-		alert('CEP inválido.');
-
-	}
+    campoNumero.focus();
+  } catch (erro) {
+    atualizarCamposEndereco();
+    alert('Erro ao buscar o CEP. Verifique sua conexão.');
+    console.error('Erro ViaCEP:', erro);
+  }
 });
+
+const processarEnvio = () => {
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  const email = campoEmail.value.trim();
+  const cpf = campoCpf.value.trim();
+
+  if (!emailValido.test(email)) {
+    alert('E-mail inválido.');
+    campoEmail.focus();
+    return;
+  }
+
+  if (!cpfValido.test(cpf)) {
+    alert('CPF inválido.');
+    campoCpf.focus();
+    return;
+  }
+
+  containerDados.innerHTML = '';
+
+  containerDados.className = 'mt-5 p-4 fs-6 fw-normal alert alert-success shadow-sm';
+
+  const listaDados = [
+    { label: 'Nome', value: campoNome.value },
+    { label: 'E-mail', value: email },
+    { label: 'CPF', value: cpf },
+    { label: 'CEP', value: campoCep.value },
+    { label: 'Estado', value: campoEstado.value },
+    { label: 'Cidade', value: campoCidade.value },
+    { label: 'Bairro', value: campoBairro.value },
+    { label: 'Logradouro', value: campoLogradouro.value },
+    { label: 'Número', value: campoNumero.value },
+    { label: 'Complemento', value: campoComplemento.value || 'Nenhum' }
+  ];
+
+  listaDados.forEach(item => {
+    const linha = document.createElement('div');
+    linha.className = 'mb-1';
+
+    const negrito = document.createElement('strong');
+    negrito.textContent = `${item.label}: `;
+
+    linha.appendChild(negrito);
+    linha.appendChild(document.createTextNode(item.value));
+    containerDados.appendChild(linha);
+  });
+
+  form.reset();
+};
 
 form.addEventListener('submit', (e) => {
-
-	e.preventDefault();
-
-	const nome = document.querySelector('#nome').value;
-	const email = campoEmail.value;
-	const cpf = campoCpf.value;
-	const telefone = campoTelefone.value;
-	const cep = campoCep.value;
-
-	const estado = document.querySelector('#estado').value;
-	const cidade = document.querySelector('#cidade').value;
-	const bairro = document.querySelector('#bairro').value;
-	const logradouro = document.querySelector('#logradouro').value;
-	const numero = document.querySelector('#numero').value;
-	const complemento = document.querySelector('#complemento').value;
-
-	if (!emailValido.test(email)) {
-		alert('E-mail inválido.');
-		return;
-	}
-
-	if (!cpfValido.test(cpf)) {
-		alert('CPF inválido.');
-		return;
-	}
-
-	dados.innerHTML = `
-		<b>Nome:</b> ${nome} <br>
-		<b>E-mail:</b> ${email} <br>
-		<b>CPF:</b> ${cpf} <br>
-		<b>Telefone:</b> ${telefone} <br>
-		<b>CEP:</b> ${cep} <br>
-		<b>Estado:</b> ${estado} <br>
-		<b>Cidade:</b> ${cidade} <br>
-		<b>Bairro:</b> ${bairro} <br>
-		<b>Logradouro:</b> ${logradouro} <br>
-		<b>Número:</b> ${numero} <br>
-		<b>Complemento:</b> ${complemento} <br>
-	`;
-
-	form.reset();
+  e.preventDefault();
+  processarEnvio();
 });
+
+botaoEnviar.addEventListener('click', processarEnvio);
