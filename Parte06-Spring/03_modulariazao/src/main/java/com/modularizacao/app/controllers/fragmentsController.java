@@ -10,4 +10,10 @@ public class fragmentsController {
         return "index";
     }
 
+
+    @RequestMapping("/linkedin")
+    public String link(){
+        return "link";
+    }
+
 }
