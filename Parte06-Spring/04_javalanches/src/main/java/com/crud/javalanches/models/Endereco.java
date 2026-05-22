@@ -32,6 +32,8 @@ public class Endereco {
     @Column(length = 255)
     private String complemento;
 
+    
+
     // Construtor vazio
     public Endereco() {
     }
