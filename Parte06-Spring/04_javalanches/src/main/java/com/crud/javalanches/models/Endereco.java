@@ -17,7 +17,7 @@ public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long codigoEndereco;
-    @Column(nullable = true)
+    @Column(nullable = true, length = 10)
     private String Cep;
     @Column(nullable = true)
     private String uf;
@@ -29,7 +29,7 @@ public class Endereco {
     private String logradouro;
     @Column(nullable = true)
     private String numero;
-    @Column
+    @Column(length = 255)
     private String complemento;
 
     // Construtor vazio
