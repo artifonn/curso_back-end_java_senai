@@ -2,7 +2,8 @@ package com.crud.javalanches.models;
 
 
 import java.time.LocalDate;
-
+import java.util.ArrayList;
+import java.util.List;
 
 // bibliotecas para criar um banco pelo java
 import jakarta.persistence.Column;
@@ -10,6 +11,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -29,6 +34,13 @@ public class Cliente {
     private String telefone;
     @Column(nullable = false)
     private LocalDate dataNascimento;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "cliente_endereco", joinColumns = @JoinColumn(name="cliente_id"), inverseJoinColumns = @JoinColumn(name="endereco_id"))
+    private List<Endereco> enderecos = new ArrayList<>();
 
     // Construtor vazio
     public Cliente() {
@@ -81,6 +93,23 @@ public class Cliente {
 
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+
+    public List<Pedido> getPedidos() {
+        return this.pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public List<Endereco> getEnderecos() {
+        return this.enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
     }
 
     

@@ -1,12 +1,16 @@
 package com.crud.javalanches.models;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 // bibliotecas para criar um banco pelo java
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Endereco {
@@ -31,6 +35,10 @@ public class Endereco {
     private String numero;
     @Column(length = 255)
     private String complemento;
+
+
+    @ManyToMany(mappedBy = "enderecos")
+    private List<Cliente> clientes = new ArrayList<>();
 
     
 
