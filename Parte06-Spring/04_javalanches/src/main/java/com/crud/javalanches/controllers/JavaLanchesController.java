@@ -2,29 +2,39 @@ package com.crud.javalanches.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.crud.javalanches.models.Categoria;
+import com.crud.javalanches.repository.CategoriaRepository;
 
 @Controller
 public class JavaLanchesController {
+
+    
    @Autowired
-    //TODO: Criar obejto da interface
+    private CategoriaRepository categoriaRepository;
 
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String index(){
         return "index";
     }
 
-    @RequestMapping(value = "/novaCategoria", method = RequestMethod.GET)
+
+    @GetMapping("/novaCategoria")
     public String novaCategoria(){
         return "nova_categoria";
 
     }
 
-    @RequestMapping(value = "/novaCategoria", method = RequestMethod.POST)
-    public String novaCategoria(Categoria){
-        // TODO: TERMINAR O Metódo
+
+    @PostMapping("/novaCategoria")
+    public String novaCategoria(Categoria categoria){
+        categoriaRepository.save(categoria);
+        return "categoria_sucesso";
 
     }
 
