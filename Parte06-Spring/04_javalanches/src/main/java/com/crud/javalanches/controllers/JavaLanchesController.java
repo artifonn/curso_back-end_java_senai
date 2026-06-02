@@ -67,6 +67,13 @@ public class JavaLanchesController {
     }
 
 
+    @GetMapping("/novoCliente")
+    public String novoCliente(){
+        return "novo_cliente";
+    }
 
+
+
+    
 
 }
