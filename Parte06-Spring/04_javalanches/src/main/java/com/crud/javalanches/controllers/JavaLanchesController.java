@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.crud.javalanches.models.Categoria;
+import com.crud.javalanches.models.Cliente;
+import com.crud.javalanches.models.Endereco;
 import com.crud.javalanches.models.Produto;
 import com.crud.javalanches.repository.CategoriaRepository;
+import com.crud.javalanches.repository.ClienteRepository;
+import com.crud.javalanches.repository.EnderecoRepository;
 import com.crud.javalanches.repository.ProdutoRepository;
 
 @Controller
@@ -22,6 +26,12 @@ public class JavaLanchesController {
     private CategoriaRepository categoriaRepository;
     @Autowired
     private ProdutoRepository produtoRepository;
+
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    @Autowired EnderecoRepository enderecoRepository;
 
 
     @GetMapping("/")
@@ -72,6 +82,15 @@ public class JavaLanchesController {
         return "novo_cliente";
     }
 
+    @PostMapping("/novoCliente")
+    public String novoCliente(Cliente cliente, Endereco endereco) {
+        cliente.getEnderecos().add(endereco);
+        endereco.getClientes().add(cliente);
+
+        enderecoRepository.save(endereco);
+        clienteRepository.save(cliente);
+        return "cliente_sucesso";
+    }
 
 
     

@@ -42,6 +42,7 @@ public class Endereco {
 
     
 
+
     // Construtor vazio
     public Endereco() {
     }
@@ -111,6 +112,15 @@ public class Endereco {
         this.complemento = complemento;
     }
 
+
+    public List<Cliente> getClientes() {
+        return this.clientes;
+    }
+    
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
     
 
 

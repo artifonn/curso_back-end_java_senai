@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 // bibliotecas para criar um banco pelo java
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,7 +39,9 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
 
-    @ManyToMany
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    
     @JoinTable(name = "cliente_endereco", joinColumns = @JoinColumn(name="cliente_id"), inverseJoinColumns = @JoinColumn(name="endereco_id"))
     private List<Endereco> enderecos = new ArrayList<>();
 
