@@ -93,6 +93,11 @@ public class JavaLanchesController {
     }
 
 
+    @GetMapping("/listaClientes")
+    public String listarClientes(){
+        return "listar_clientes";
+    }
+
     
 
 }

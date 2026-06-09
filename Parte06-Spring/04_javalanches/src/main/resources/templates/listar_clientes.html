@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+    th:replace="~{fragments/layout :: main-layout(~{::title}, ~{::main})}">
+
+<head>
+
+
+    <title> JavaLanhces - Listar Clientes</title>
+
+</head>
+
+<body>
+
+
+    <main>
+
+        <div class="container mt-5">
+
+            <h1 class="mb-4">Clientes Cadastrados</h1>
+
+            <div class="row">
+
+                <div class="accordion" id="accordionExample">
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Clientes
+                            </button>
+
+                        </h2>
+
+                        <div class="card-body">
+
+                            <div th:if="${cliente.empty}">
+                            <div class="alert alert-warning">Nenhum cliente encontrado</div>
+
+                        </div>
+
+
+                        </div>
+                        
+
+
+                        
+
+                    </div>
+
+                    
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+    </main>
+
+
+
+
+
+</body>
+
+</html>
