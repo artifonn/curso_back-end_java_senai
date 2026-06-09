@@ -20,36 +20,53 @@
 
             <div class="row">
 
-                <div class="accordion" id="accordionExample">
+                <div class="accordion" id="accordionClientes">
 
-                    <div class="accordion-item">
+                    <div class="accordion-item" th:each="cliente : ${clientes}">
 
-                        <h2 class="accordion-header">
 
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Clientes
-                            </button>
 
-                        </h2>
+                        <button class="accordion-button" type="button">
 
-                        <div class="card-body">
+                            <span th:text="${cliente.nome}"></span>
 
-                            <div th:if="${cliente.empty}">
-                            <div class="alert alert-warning">Nenhum cliente encontrado</div>
+                        </button>
+
+
+
+
+                        <!-- <div th:if="${#lists.isEmpty(cliente)}">
+                            <div class="alert alert-warning">
+                                Nenhum cliente encontrado
+                            </div>
+                        </div> -->
+
+                        <div class="accordion-body">
+
+                            <p>
+                                <strong>Nome:</strong>
+                                <span th:text="${cliente.nome}"></span>
+                            </p>
+
+                            <p>
+                                <strong>Email:</strong>
+                                <span th:text="${cliente.email}"></span>
+                            </p>
 
                         </div>
 
 
-                        </div>
-                        
 
 
-                        
+
+
+
+
+
 
                     </div>
 
-                    
+
                 </div>
 
 
