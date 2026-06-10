@@ -1,8 +1,11 @@
 package com.crud.javalanches.controllers;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -94,12 +97,14 @@ public class JavaLanchesController {
 
 
 
-    @GetMapping("/listaClientes")
-    public String listarClientes(Model model){
+    @GetMapping("/listarClientes")
+    public String listarClientes(Model model, @RequestParam(defaultValue = "0") int pagina){
 
-        List<Cliente> clientes = clienteRepository.findAll();
+        PageRequest pageable = PageRequest.of(pagina, 50, Sort.by("codigoCliente").ascending());
+        Page<Cliente> clientes = clienteRepository.findAll(pageable);
 
         model.addAttribute("clientes",clientes);
+        model.addAttribute("paginaAtual", pagina);
         return "listar_clientes";
     }
 
