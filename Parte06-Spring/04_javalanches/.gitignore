@@ -3,6 +3,7 @@ target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+git config --global --unsert-all user.name
 
 ### STS ###
 .apt_generated
