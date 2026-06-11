@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
-    th:replace="~{fragments/layout :: main-layout(~{::title}, ~{::main})}">
+  th:replace="~{fragments/layout :: main-layout(~{::title}, ~{::main})}">
 
 <head>
 
-    <title>Javalanches - nova categoria</title>
+  <title>Javalanches - nova categoria</title>
 </head>
 
 <body>
-    <main>
-        <h1>Cadastro de nova categoria</h1>
-        <hr>
+  <main>
+    <h1>Cadastro de nova categoria</h1>
+    <hr>
 
-        <form method="POST">
-            <div class="row">
+    <form method="POST">
+      <div class="row">
 
-                <div class="col-12 mb-3">
-                    <label for="categoria" class="form-label">Categoria: </label>
-                    <input type="text" class="form-control" placeholder="Informe a categoria do produto"
-                        id="nomeCategoria" name="nomeCategoria" required>
+        <div class="col-12 mb-3">
+          <label for="categoria" class="form-label">Categoria: </label>
+          <input type="text" class="form-control" placeholder="Informe a categoria do produto" id="nomeCategoria"
+            name="nomeCategoria" required>
 
-                </div>
+        </div>
 
-                <div class="d-flex justify-content-start">
-                    <button type="submit" class="btn btn-primary">Cadastrar Categoria</button>
+        <div class="d-flex justify-content-start">
+          <button type="submit" class="btn btn-primary">Cadastrar Categoria</button>
 
-                </div>
+        </div>
+
+        <div th:if="${mensagemErro}" class="alert alert-danger">
+          <span th:text="${mensagemErro}"></span>
+        </div>
+
+        <div th:if="${mensagemSucesso}" class="alert alert-success">
+          <span th:text="${mensagemSucesso}"></span>
+        </div>
 
 
+      </div>
 
+    </form>
 
-            </div>
-
-        </form>
-
-    </main>
+  </main>
 
 </body>
 

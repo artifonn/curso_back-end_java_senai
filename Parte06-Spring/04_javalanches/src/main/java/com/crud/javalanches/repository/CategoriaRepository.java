@@ -1,15 +1,13 @@
-
 package com.crud.javalanches.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import com.crud.javalanches.models.Categoria;
 
-@Repository
-public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
+public interface CategoriaRepository
+        extends JpaRepository<Categoria, Long> {
 
+    boolean existsByNomeCategoria(String nomeCategoria);
 
-
+    Categoria findByNomeCategoria(String nomeCategoria);
 }
- 

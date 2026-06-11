@@ -28,7 +28,8 @@
                             <strong>
                                 <span th:text="${categoria.codigoCategoria}"></span>
                                 .
-                                <span th:text="${categoria.nomeCategoria.toUpperCase()}"></span>
+                                <!-- <span th:text="${categoria.nomeCategoria.toUpperCase()}"></span> -->
+                                 <a class="text-white text-decoration-none" th:href="@{/atualizarCategoria(codigoCategoria=${categoria.codigoCategoria})}" th:text="${categoria.nomeCategoria.toUpperCase()}"></a>  
                                 
                             </strong>
 
@@ -42,7 +43,7 @@
 
                             <div th:unless="${#lists.isEmpty(categoria.Produto)}">
                                 <div class="list-group">
-                                    <div th:each="produto: ${categoria.produto}" class="list-group-item mb-3">
+                                    <div th:each="produto: ${categoria.Produto}" class="list-group-item mb-3">
 
                                         <p class="mb-1 fw-semibold">
                                             <span th:text="${produto.codigoProduto}"></span>
