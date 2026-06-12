@@ -4,13 +4,11 @@
 
 <head>
 
-
     <title> JavaLanhces - Listar Clientes</title>
 
 </head>
 
 <body>
-
 
     <main>
 
@@ -20,12 +18,9 @@
 
             <div class="row">
 
-
-
                 <div th:if="${clientes.empty}" class="alert alert-warning">
                     Nenhum cliente cadastrado.
                 </div>
-
 
                 <div th:unless="${clientes.empty}">
                     <div class="accordion" id="accordionClientes">
@@ -71,13 +66,18 @@
                                             <strong>Data de nascimento:</strong>
                                             <span th:text="${cliente.dataNascimento}"></span>
                                         </div>
+                                    </div>
 
+                                    <div class="mt-4">
+                                        <h3 class="h6-mb-3">Endereços</h3> 
+                                        <div class="mb-3">
+                                            <!-- TODO: botão novo endereço -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <nav class="mt-4" aria-label="Paginação de clientes">
                         <ul class="pagination justify-content-center mb-0">
@@ -99,18 +99,12 @@
 
                     </nav>
 
-
-
                 </div>
-
 
             </div>
 
-
         </div>
 
-
-    
 
     </main>
 
