@@ -15,12 +15,9 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
-
 @Entity
 public class Pedido {
-
     private static long serialVersionUID = 1L;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,13 +29,12 @@ public class Pedido {
     private BigDecimal valorTotalPedido;
 
     @ManyToMany
-    @JoinTable(name = "pedido_produto", joinColumns = @JoinColumn(name="pedido_id"), inverseJoinColumns = @JoinColumn(name="produto_id"))
+    @JoinTable(name = "pedido_produto", joinColumns = @JoinColumn(name = "pedido_id"), inverseJoinColumns = @JoinColumn(name = "produto_id"))
     private List<Produto> produtos = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
-
 
     public Pedido() {
     }
@@ -67,7 +63,6 @@ public class Pedido {
         this.valorTotalPedido = valorTotalPedido;
     }
 
-
     public List<Produto> getProdutos() {
         return this.produtos;
     }
@@ -83,10 +78,5 @@ public class Pedido {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-
-    
-    
-    
 
 }

@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
-    th:replace="~{fragments/layout :: main-layout(~{::title}, ~{::main})}">>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: main-layout(~{::title}, ~{::main})}">
 <head>
-    
-    <title>Produto cas Sucesso</title>
-
+    <title>Produto cadastrado com sucesso</title>
 </head>
 <body>
-
     <main>
         <script>
-            alert("Produto Cadastrado com sucesso");
-            window.location.href ="/"
+            alert("Produto cadastrado com sucesso!");
+            window.location.href = '/';
         </script>
-
     </main>
-    
 </body>
 </html>

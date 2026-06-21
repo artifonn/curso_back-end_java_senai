@@ -1,10 +1,8 @@
 package com.crud.javalanches.models;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-// bibliotecas para criar um banco pelo java
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,40 +12,33 @@ import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Endereco {
-
-    // Atributos do banco
-
     private static long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long codigoEndereco;
-    @Column(nullable = true, length = 10)
-    private String Cep;
-    @Column(nullable = true)
+
+    @Column(nullable = false, length = 10)
+    private String cep;
+    @Column(nullable = false)
     private String uf;
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String cidade;
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String bairro;
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String logradouro;
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String numero;
     @Column(length = 255)
     private String complemento;
 
-
     @ManyToMany(mappedBy = "enderecos")
     private List<Cliente> clientes = new ArrayList<>();
 
-    
-
-
-    // Construtor vazio
     public Endereco() {
     }
 
-    // Metodos getters e Setters
     public long getCodigoEndereco() {
         return this.codigoEndereco;
     }
@@ -57,11 +48,11 @@ public class Endereco {
     }
 
     public String getCep() {
-        return this.Cep;
+        return this.cep;
     }
 
-    public void setCep(String Cep) {
-        this.Cep = Cep;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public String getUf() {
@@ -112,16 +103,12 @@ public class Endereco {
         this.complemento = complemento;
     }
 
-
     public List<Cliente> getClientes() {
         return this.clientes;
     }
-    
 
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
-    
-
 
 }

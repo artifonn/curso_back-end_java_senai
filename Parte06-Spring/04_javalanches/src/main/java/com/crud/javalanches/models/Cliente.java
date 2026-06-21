@@ -1,17 +1,16 @@
 package com.crud.javalanches.models;
 
-
+// REVIEW: revisar os imports
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-// bibliotecas para criar um banco pelo java
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
@@ -19,12 +18,13 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Cliente {
-
     // atributos
     private static long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long codigoCliente;
+    
     @Column(nullable = false)
     private String nome;
     @Column(nullable = false, unique = true, length = 14)
@@ -39,16 +39,14 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
 
-
+    // FIXME: completar a linha abaixo @ManyToMany para criar a relação entre Cliente e Endereco
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    
-    @JoinTable(name = "cliente_endereco", joinColumns = @JoinColumn(name="cliente_id"), inverseJoinColumns = @JoinColumn(name="endereco_id"))
+
+    @JoinTable(name = "cliente_endereco", joinColumns = @JoinColumn(name = "cliente_id"), inverseJoinColumns = @JoinColumn(name = "endereco_id"))
     private List<Endereco> enderecos = new ArrayList<>();
 
-    // Construtor vazio
     public Cliente() {
     }
-
 
     public long getCodigoCliente() {
         return this.codigoCliente;
@@ -98,7 +96,6 @@ public class Cliente {
         this.dataNascimento = dataNascimento;
     }
 
-
     public List<Pedido> getPedidos() {
         return this.pedidos;
     }
@@ -114,12 +111,5 @@ public class Cliente {
     public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
-
-    
-
-
-
-
-
 
 }

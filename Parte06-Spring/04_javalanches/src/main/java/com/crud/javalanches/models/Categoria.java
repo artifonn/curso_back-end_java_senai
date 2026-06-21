@@ -12,23 +12,27 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Categoria {
-
     private static long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long codigoCategoria;
+    
     @Column(unique = true, nullable = false)
     private String nomeCategoria;
 
     @OneToMany(mappedBy = "categoria")
-    private List<Produto> produto = new ArrayList<>();
- 
-    
+    private List<Produto> produtos = new ArrayList<>();
 
-
-    
-    // construtor vazio
     public Categoria() {
+    }
+
+    public List<Produto> getProdutos() {
+        return this.produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     public long getCodigoCategoria() {
@@ -46,14 +50,5 @@ public class Categoria {
     public void setNomeCategoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
     }
-
-    public List<Produto> getProduto() {
-        return this.produto;
-    }
-
-    public void setProduto(List<Produto> produto) {
-        this.produto = produto;
-    }
-
 
 }
